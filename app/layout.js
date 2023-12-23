@@ -1,7 +1,14 @@
-import { Inter } from 'next/font/google'
+import { Inter, Poppins } from 'next/font/google'
 import './globals.css'
 import Link from "next/link"
 const inter = Inter({ subsets: ['latin'] })
+
+const poppins = Poppins({
+    subsets: ['latin'],
+    display: 'swap',
+    variable: '--font-poppins',
+    weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900']
+  });
 
 export const metadata = {
   title: 'Create Next App',
@@ -11,16 +18,22 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} container mx-auto`}>
+      <body className={`${poppins.variable} container max-w-6xl mx-auto`}>
         <nav className="flex justify-between items-center">
-          <Link href="/">Home</Link>
-          <ul className="flex space-x-2 py-2">
+          <Link href="/" className='hover:text-gray-400 duration-100 font-bold'>Home</Link>
+          <ul className="flex font-semibold space-x-6 py-2">
             <li>
-              <Link href="/about">About</Link>
+              <Link href="/posts" className='hover:text-gray-400 duration-100'>posts</Link>
             </li>
             <li>
+              <Link href="/contact" className='hover:text-gray-400 duration-100'>Contact</Link>
+            </li>
+            <li>
+              <Link href="/about" className='hover:text-gray-400 duration-100'>About</Link>
+            </li>
+            {/* <li>
               <Link href="/contact">Contact</Link>
-            </li>
+            </li> */}
           </ul>
         </nav>
         {children}
