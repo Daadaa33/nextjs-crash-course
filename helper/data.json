@@ -1,1 +1,12 @@
-{"id":null,"title":"post 3","body":"post 3 body"}
+[
+  {
+    "id": 1,
+    "title": "daadaa",
+    "body": "here we go!"
+  },
+  {
+    "id": 2,
+    "title": "ali aadan",
+    "body": "welcome"
+  }
+]

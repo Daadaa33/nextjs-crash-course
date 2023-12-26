@@ -1,15 +1,13 @@
+import PostForm from "../_component/PostForm";
 
 
 const PostId = async ({params }) => {
-    const data = await fetch(`https://jsonplaceholder.typicode.com/posts/${params.id}`)
+
+    const data = await fetch(`http://localhost:3000/api/post/${params.id}`, { cache: "no-store" });
     const postData = await data.json()
 
-    return (
-    <div>
-        <h1>{params.id}</h1>
-        <p className="font-bold">{postData.title}</p>
-    </div>
-  )
-}
+    return <PostForm postData={postData} />;
+} 
 
 export default PostId
+
