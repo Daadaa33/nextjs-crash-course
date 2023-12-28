@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import ListItems from './_component/ListItems';
+import { Suspense } from 'react';
+import Loading from '../loading';
 
 
 const Home = async () => {
@@ -26,7 +28,9 @@ const Home = async () => {
             </Link>
           </div>
         </div>
+        <Suspense fallback={<Loading />}>
         <ListItems />
+        </Suspense>
       </div>
     );
 };

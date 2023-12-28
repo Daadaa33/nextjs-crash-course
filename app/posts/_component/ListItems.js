@@ -1,6 +1,7 @@
 
 import Link from 'next/link';
 import React from 'react';
+import DeleteButton from './DeleteButton';
 
 
 const ListItems = async () => {
@@ -52,7 +53,8 @@ const ListItems = async () => {
                       {post.body}
                     </td>
 
-                    <td className="space-x-4 relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
+                    <td className="space-x-4  relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
+                        <DeleteButton id={post.id} />
                       <Link
                         href={`/posts/${post.id}`}
                         className="text-indigo-600 hover:text-indigo-900"

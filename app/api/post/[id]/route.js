@@ -19,6 +19,25 @@ export async function PUT(request, { params }) {
     return NextResponse.json(posts[postIndex], { status: 200 });
 }
 
+export async function DELETE(request, { params }) {
+    const posts = await readData();
+
+    const { id } = params;
+
+    const postIndex = posts.findIndex(post => post.id === parseInt(id));
+
+    if (postIndex === -1) {
+        return NextResponse.json({ error: "Invalid post" }, { status: 404, message: 404 });
+    }
+
+    posts.splice(postIndex , 1)
+
+    await writeData(posts)
+
+    
+    return NextResponse.json(posts[postIndex], { status: 200 });
+}
+
 export async function GET(request, { params }) {
 
     const { id } = params;
